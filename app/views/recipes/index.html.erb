@@ -1,0 +1,16 @@
+<h1>A Recipe for Disaster</h1>
+<%= link_to "Submit a recipe!", new_recipe_path %>
+<hr>
+<% @recipes.each do |recipe| %>
+  <%= link_to image_tag(recipe.poster_image_url), recipe_path(recipe) %>
+  <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
+
+  <h4>Recipe <%= recipe.ingredients %> | Cook Time <%= recipe.cook_time %> minutes</h4>
+  <p><%= recipe.directions %></p>
+    <p><%= recipe.review_average %>/10</p>
+  <hr>
+<% end %>
+
+
+
+<!-- title, cook_time, ingredients, directions, poster_image_url -->
