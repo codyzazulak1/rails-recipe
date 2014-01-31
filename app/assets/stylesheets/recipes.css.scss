@@ -5,10 +5,49 @@
 body {
   background: white;
   padding-left: 15px;
+  padding-right: 15px;
 }
 
 img {
 	border-radius: 30%;
-	padding-top: 10px;
+	margin-top: -30px
 }
 
+hr.main {
+	padding-bottom: 25px;
+}
+
+div.box {
+	width: 600px;
+}
+
+h1.title {
+
+	position: inherit;
+	font-size: 50px;
+
+}
+
+img.titlePic {
+	position: relative;
+	margin-top: 5px;
+	float: left;
+
+}
+
+footer {
+	padding-bottom: 15px;
+}
+
+div.subRec {
+	position: inherit;
+	margin-top: 20px;
+}
+
+p.rating {
+	margin-top: -10px;
+}
+
+hr.ratingsLine {
+	width: 200px;
+}

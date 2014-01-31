@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = @recipe.reviews.build
+    # @review.rating_out_of_ten = 5 #might try adding a word here
   end
 
   def create

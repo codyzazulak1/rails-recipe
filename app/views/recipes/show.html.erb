@@ -1,20 +1,24 @@
-<%= link_to "Back to all recipes", recipes_path %><br/>
+<p><%= link_to "Back to all recipes", recipes_path %></p><br/>
 
 <%= link_to image_tag(@recipe.poster_image_url), recipe_path(@recipe) %>
 <h2><%= @recipe.title %> (<%= link_to "edit", edit_recipe_path(@recipe) %>, <%= link_to "delete", recipe_path(@recipe), method: :delete, confirm: "You sure?" %>)</h2>
-<h4>Recipe <%= @recipe.ingredients %> | Cook Time <%= @recipe.cook_time %> minutes</h4>
-  <p><%= @recipe.directions %></p>
-    <p><%= @recipe.review_average %>/10</p>
+<h4>Recipe: <%= @recipe.directions %> | Cook Time <%= @recipe.cook_time %> minutes</h4>
+  <p>Ingredients: 
+
+  <% @recipe.ingredients.each do |ingredient| %>
+  	<%= ingredient.name %>
+  	<% end %> </p>
+    <p class="rating">Rating: <%= @recipe.review_average %>/10</p>
 
 
 <hr>
 
-<h3>Reviews of <em><%= @recipe.title %></em></h3>
+<h3>Reviews of <em><%= @recipe.title %></em>:</h3>
 <% if current_user %>
   <% @recipe.reviews.each do |review| %>
     <p><%= review.text %></p>
     <p><%= review.rating_out_of_ten %>/10</p>
-    <small>- <%= review.user.full_name %></small><br/>
+    <small>- <%= review.user.full_name %></small><br/><hr class="ratingsLine">
   <% end %>
   <p><%= link_to "Write a review!", new_recipe_review_path(@recipe) %></p>
 <% else %>

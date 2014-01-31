@@ -10,17 +10,19 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @ingredients = Ingredient.all
   end
 
   def edit
-    @recipes = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
+    @ingredients2 = @recipe.ingredients.map{|i| i.name}
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = Ingredient.all
 
     if @recipe.save
-      redirect_to recipes_path, notice: "#{@recipe.title} was submitted successfully!"
+      redirect_to "ingredients/new"
     else
       render :new
     end

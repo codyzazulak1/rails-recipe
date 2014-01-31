@@ -1,6 +1,7 @@
 class Recipe < ActiveRecord::Base
 
 	has_many :reviews
+  has_many :ingredients
 
 	validates :title,
 	    presence: true
@@ -20,7 +21,7 @@ class Recipe < ActiveRecord::Base
 
   def review_average
     if reviews.size == 0
-      nil
+      return "(unrated) "
     else
      reviews.sum(:rating_out_of_ten)/reviews.size
     end

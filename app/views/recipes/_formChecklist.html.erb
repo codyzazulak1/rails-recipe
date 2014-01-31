@@ -11,29 +11,13 @@
     </div>
   <% end %>
 
-  <div class="box">
-    <%= f.label "title" %><br>
-    <%= f.text_field "title" %>
-  </div>
-  <div class="box">
-    <%= f.label "directions" %><br>
-    <%= f.text_field "directions" %>
-  </div>
-  <div class="box">
-    <%= f.label "cook_time in minutes" %><br>
-    <%= f.number_field "cook_time" %>
-  </div>
-  <div class="box">
-    <%= f.label "Recipe Image URL" %><br>
-    <%= f.text_field "poster_image_url" %>
-  </div>
 
   <div class="box">
     <%= f.label "ingredients" %><br>
     <% ingredients_arr = @recipe.ingredients.map { |i| i.name } %>
-    <%= f.text_field(:self_summary, :value => ingredients_arr) %>
+    <%= f.text_field "(:self_summary, :value => ingredients_arr)", %>
   </div>
-
+  
   <div>
     <%= f.submit "Submit" %> 
   </div>
