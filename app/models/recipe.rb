@@ -12,8 +12,8 @@ class Recipe < ActiveRecord::Base
   validates :cook_time,
     numericality: { only_integer: true }
 
-  validates :ingredients,
-    presence: true
+  # validates :ingredients,
+  #   presence: true
 
   validates :poster_image_url,
     presence: true
@@ -26,5 +26,15 @@ class Recipe < ActiveRecord::Base
      reviews.sum(:rating_out_of_ten)/reviews.size
     end
   end
+
+  # ------
+  def self.search(search)
+    if search
+    where('name LIKE ?', "%#{search}%")
+    else
+    all
+   end
+  end
+  # ------
   
 end

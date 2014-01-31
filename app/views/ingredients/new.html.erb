@@ -1,0 +1,27 @@
+<%= link_to "Back to all recipes", recipes_path %>
+
+<h2>Add Your Ingredients!</h2>
+
+<%= form_for [@recipe, @ingredient] do |f| %>
+
+  <% if @ingredient.errors.any? %>
+    <div>
+      <%= pluralize(@ingredient.errors.count, "error") %> prevented this ingedient from being submitted:
+      <ul>
+        <% @ingredient.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="box">
+    <%= f.label "ingredients" %><br>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div>
+    <%= f.submit "Submit" %> 
+  </div>
+<% end %>

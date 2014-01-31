@@ -15,7 +15,7 @@
   <div class="box">
     <%= f.label "ingredients" %><br>
     <% ingredients_arr = @recipe.ingredients.map { |i| i.name } %>
-    <%= f.text_field "(:self_summary, :value => ingredients_arr)", %>
+    <%= f.text_field(:self_summary, :value => ingredients_arr) %>
   </div>
   
   <div>

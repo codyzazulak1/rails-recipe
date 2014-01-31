@@ -1,7 +1,18 @@
 <img class="titlePic" src="http://thumbs.dreamstime.com/thumbimg_341/1228726954blJ3If.jpg">
 <h1 class="title">Recipe Docs</h1>
 
+
 <div class="subRec"><%= link_to "Submit a recipe!", new_recipe_path %></div>
+
+  <!--  -->
+		<%= form_tag recipes_path, :method => 'get' do %>
+		<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search", :name => nil %>
+		</p>
+		<% end %>
+  <!--  -->
+
 <hr class="main">
 <% @recipes.each do |recipe| %>
   <%= link_to image_tag(recipe.poster_image_url), recipe_path(recipe) %>

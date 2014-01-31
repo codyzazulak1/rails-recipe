@@ -15,14 +15,14 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    @ingredients2 = @recipe.ingredients.map{|i| i.name}
+    @ingredients = @recipe.ingredients.map{|i| i.name}
   end
 
   def create
-    @recipe = Ingredient.all
+    @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
-      redirect_to "ingredients/new"
+      redirect_to new_recipe_ingredients_path(@recipe)
     else
       render :new
     end
@@ -43,6 +43,14 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipes_path
   end
+
+  # ------
+  def index
+    @title = "All Recipes"
+
+    @recipes = Recipe.search(params[:search])
+  end
+# ------
 
   protected
 

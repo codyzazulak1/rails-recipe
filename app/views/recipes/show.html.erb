@@ -7,7 +7,9 @@
 
   <% @recipe.ingredients.each do |ingredient| %>
   	<%= ingredient.name %>
-  	<% end %> </p>
+  	<% end %> 
+  	<%= link_to "Add new", new_recipe_ingredients_path(@recipe) %>
+  	</p>
     <p class="rating">Rating: <%= @recipe.review_average %>/10</p>
 
 
