@@ -44,13 +44,11 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
-  # ------
-  def index
-    @title = "All Recipes"
-
-    @recipes = Recipe.search(params[:search])
-  end
-# ------
+def search
+  logger.debug(params[:search])
+  @recipes = Recipe.find_with_ingredient(params[:search])
+  render 'ingredients/searchResults'
+end
 
   protected
 

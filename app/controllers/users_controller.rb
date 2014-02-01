@@ -15,13 +15,6 @@ class UsersController < ApplicationController
     end
   end
 
-# ------
-  def index
-    @title = "All users"
-
-    @users = User.search(params[:search])
-  end
-# ------
 
   protected
 

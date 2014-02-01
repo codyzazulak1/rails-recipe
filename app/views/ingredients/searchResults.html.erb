@@ -3,28 +3,14 @@
 
 
 <div class="subRec"><%= link_to "Submit a recipe!", new_recipe_path %></div>
-
-
-<!-- search -->
-
-<%= form_tag recipes_search_path, :method => 'get' do %>
-<p>
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag "Search", :name => nil %>
-</p>
-<% end %>
-
-
-
-
-
+<p><%= link_to "Back to all recipes", recipes_path %></p><br/>
 <hr class="main">
 <% @recipes.each do |recipe| %>
   <%= link_to image_tag(recipe.poster_image_url), recipe_path(recipe) %>
   <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
 
 
-  <h4>Directions: <%= recipe.directions %> | Cook Time: <%= recipe.cook_time %> minutes</h4>
+  <h4>Recipe: <%= recipe.directions %> | Cook Time: <%= recipe.cook_time %> minutes</h4>
 
   <p>Ingredients: <% recipe.ingredients.each do |ingredient| %>
   	<%= ingredient.name %>

@@ -26,15 +26,12 @@ class Recipe < ActiveRecord::Base
      reviews.sum(:rating_out_of_ten)/reviews.size
     end
   end
-
-  # ------
-  def self.search(search)
-    if search
-    where('name LIKE ?', "%#{search}%")
-    else
-    all
-   end
-  end
-  # ------
   
+  def self.find_with_ingredient(name)
+    Recipe.joins(:ingredients).where( :'ingredients.name' => name ).all
+  end
+
+  
+
+
 end
