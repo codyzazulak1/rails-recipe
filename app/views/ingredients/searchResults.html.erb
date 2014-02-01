@@ -1,10 +1,23 @@
 <img class="titlePic" src="http://thumbs.dreamstime.com/thumbimg_341/1228726954blJ3If.jpg">
 <h1 class="title">Recipe Docs</h1>
 
+<!-- search -->
+<div class="searchBar">
+<%= form_tag recipes_search_path, :method => 'get' do %>
+<p>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search Ingredients", :name => nil %>
+</p>
+<% end %>
+</div>
+
 
 <div class="subRec"><%= link_to "Submit a recipe!", new_recipe_path %></div>
-<p><%= link_to "Back to all recipes", recipes_path %></p><br/>
+<p><%= link_to "Back to all recipes", recipes_path %></p>
+<hr>
+<h2>Results:</h2>
 <hr class="main">
+
 <% @recipes.each do |recipe| %>
   <%= link_to image_tag(recipe.poster_image_url), recipe_path(recipe) %>
   <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
@@ -13,13 +26,18 @@
   <h4>Recipe: <%= recipe.directions %> | Cook Time: <%= recipe.cook_time %> minutes</h4>
 
   <p>Ingredients: <% recipe.ingredients.each do |ingredient| %>
-  	<%= ingredient.name %>
+  	<%= ingredient.name %>,
   	<% end %> 
   </p>
 
 
     <p class="rating">Rating: <%= recipe.review_average %>/10</p>
+
   <hr class="main">
+
+
+
 <% end %>
 
 
+<p><%= link_to "Back to all recipes", recipes_path %></p>
