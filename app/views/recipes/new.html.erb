@@ -1,8 +1,19 @@
 <img class="titlePic" src="http://thumbs.dreamstime.com/thumbimg_341/1228726954blJ3If.jpg">
-<h1 class="title">Recipe Docs</h1><hr>
+<h1 class="title">Recipe Docs</h1>
+
+<!-- search -->
+<div class="searchBar">
+<%= form_tag recipes_search_path, :method => 'get' do %>
+<p>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search Ingredients", :name => nil %>
+</p>
+<% end %>
+</div>
 
 
-<%= link_to "Back to all recipes", recipes_path %>
 
-<h2>Submit A Recipe!</h2>
-<%= render 'formPreList' %>
+<p><%= link_to "Back to all recipes", recipes_path %></p>
+<hr>
+<h2>Submit A Recipe!</h2><hr class="main">
+<%= render 'formPreList' %><br>
