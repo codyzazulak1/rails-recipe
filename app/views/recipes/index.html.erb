@@ -20,7 +20,7 @@
   <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
 
 
-  <h4>Directions: <%= recipe.directions %> | Cook Time: <%= recipe.cook_time %> minutes</h4>
+  <h4>Directions: <%= recipe.directions %> | Cook Time: <strong><%= recipe.cook_time %></strong> minutes</h4>
 
   <p>Ingredients: <% recipe.ingredients.each do |ingredient| %>
   	<%= ingredient.name %>,

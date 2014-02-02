@@ -19,7 +19,7 @@
 
 <%= link_to image_tag(@recipe.poster_image_url), recipe_path(@recipe) %>
 <h2><%= @recipe.title %> (<%= link_to "edit", edit_recipe_path(@recipe) %>, <%= link_to "delete", recipe_path(@recipe), method: :delete, confirm: "You sure?" %>)</h2>
-<h4>Directions: <%= @recipe.directions %> | Cook Time <%= @recipe.cook_time %> minutes</h4>
+<h4>Directions: <%= @recipe.directions %> | Cook Time <strong><%= @recipe.cook_time %></strong> minutes</h4>
   <p>Ingredients: 
 
   <% @recipe.ingredients.each do |ingredient| %>
