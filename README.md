@@ -1,7 +1,7 @@
 railsRecipeSite
 ===============
 
-This is my site that allows users to search for a recipe based off of ingredients that you have in your house. Users will input an ingredient (or multiple) and the app will narrow down your results to recipes that include your chosen ingredients
+This is my site that allows users to search for a recipe based off of ingredients that you have in your house. Users will input an ingredient and the app will narrow down your results to recipes that include your chosen ingredients
 
 ## User Stories:
 
