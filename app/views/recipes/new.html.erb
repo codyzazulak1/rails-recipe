@@ -5,7 +5,7 @@
 <div class="searchBar">
 <%= form_tag recipes_search_path, :method => 'get' do %>
 <p>
-<%= text_field_tag :search, params[:search] %>
+<%= text_field_tag :search, params[:search], :placeholder => "Hey, Check Me Out!" %>
 <%= submit_tag "Search Ingredients", :name => nil %>
 </p>
 <% end %>
